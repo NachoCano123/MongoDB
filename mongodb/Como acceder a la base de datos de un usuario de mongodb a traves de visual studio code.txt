@@ -1,0 +1,24 @@
+1º Accedemos con nuestra cuenta a https://www.mongodb.com/es
+
+2º Una vez dentro, pinchamos en database access y dentro de esto a add database user
+
+3º Creamos un usuario y contraseña, y en el apartado de built-in-role le damos a add built-in-role y luego a read and write to any database
+
+4º Todavía en esta pestaña, le damos abajo del todo a add User
+
+5º Una vez creado el usuario, en la pestaña principal vamos arriba del todo y le damos a database
+
+6º En database, añadimos nuestra dirección IP pinchando en add current IP adress
+
+7º Todavía en database, al lado de cluster0 pinchamos en connect
+
+8º Dentro de connect, le damos a drivers y copiamos el código de mongodb+srv://<username>:<password>@cluster0.mttqytn.mongodb.net/?retryWrites=true&w=majority
+Donde en <username> pones el nombre de usuario que has creado antes y en <password> su contraseña.
+
+9º En visual studio code, en un archivo nuevo, ponemos:
+import express,{Request, Response} from "npm:express@4.18.2" //https://www.npmjs.com/package/express
+import mongoose from "npm:mongoose@7.6.3"
+await mongoose.connect("mongodb+srv://nacho:12345@cluster0.mttqytn.mongodb.net/pruebadatabase?retryWrites=true&w=majority") //nacho es el nombre de usuario, 12345 es la contraseña y pruebadatabase es el nombre de la database(a esto lo podemos llamar como queramos)
+const miapp = express()
+
+miapp.listen(3000)
